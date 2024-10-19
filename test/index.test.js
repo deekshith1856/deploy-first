@@ -1,8 +1,12 @@
-// test/index.test.js
 import request from "supertest";
-import app from "../index.js"; // Import your Express app
+import { app, server } from "../index.js"; // Import the Express app and server
 
 describe("GET /", () => {
+  after((done) => {
+    // Close the server after tests are complete
+    server.close(done);
+  });
+
   it("should return Hello, World!", (done) => {
     request(app)
       .get("/") // Simulate a GET request to the root endpoint

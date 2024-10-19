@@ -1,6 +1,6 @@
 // test/index.test.js
 import request from "supertest";
-import app from "../index"; // Import your Express app
+import app from "../index.js"; // Import your Express app
 
 describe("GET /", () => {
   it("should return Hello, World!", (done) => {

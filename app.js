@@ -1,4 +1,6 @@
 import express from "express";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 
@@ -9,10 +11,11 @@ app.get("/", (req, res) => {
 
 // Export the app and server for testing
 let server = null;
-
+const PORT = process.env.PORT || 8000;
+console.log(PORT);
 if (process.env.NODE_ENV !== "test") {
-  server = app.listen(3000, () => {
-    console.log("Server is running on port 3000");
+  server = app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
   });
 }
 
